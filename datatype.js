@@ -131,3 +131,33 @@ arr_Random_Char.push(char[id])
 console.log(arr_Random_Char.join(''))
 
 
+
+console.log('Write a script which generates a random hexadecimal number.')
+let hex = '#'
+const hex_Char = 'abcdefghijklmnopqrstuvwxyz0123456789'
+const hex_Arr = []
+for (let i = 0; i < 6; i++){
+    let random_Hex = Math.floor(Math.random(i)*hex_Char.length)
+    hex_Arr.push(hex_Char[random_Hex])
+}
+console.log(hex + hex_Arr.join(''))
+
+
+let upper_Arr = countries.map(item => item.toUpperCase())
+console.log(upper_Arr)
+
+let count_Length = countries.map(count => count.length)
+console.log(upper_Arr,count_Length)
+
+let get_3Char = countries.map(char => char.slice(0,3).toUpperCase())
+console.log(get_3Char)
+
+let country = countries.map((country,index) =>[country.toUpperCase(),get_3Char[index],count_Length[index]])
+console.log(country)
+
+let get_LastChar = countries.map(country => country.slice(country.length-4,country.length)
+)
+console.log(get_LastChar)
+
+const get_Land = countries.filter(country => country.includes('land'))
+console.log(get_Land)
