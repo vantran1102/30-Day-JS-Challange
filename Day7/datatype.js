@@ -81,3 +81,87 @@ function reverseArray(){
     console.log(reverse_Array.reverse())
 }
 reverseArray(1,2,3,4)
+
+let item_array = []
+function addItem(item){
+    item_array.push(item)
+    return item_array
+}
+
+function removeItem(index){
+    item_array.splice(index,1)
+    return item_array
+}
+
+addItem("hi")
+addItem(2)
+addItem(5)
+addItem(6)
+console.log("add item: ",item_array)
+removeItem(0)
+console.log("Remove one item :", item_array)
+removeItem(2)
+console.log("Remove one item :", item_array)
+
+let sum = 0
+function sumOfNumbers(...args){   
+    for (const i of args){
+        sum +=i    
+    }
+    return sum
+}
+sumOfNumbers(1,2,3,4,5)
+console.log('Sum of numbers is: ',sum)
+
+let sum_even = 0
+function sumOfEven(...args){
+    for (const i of args)
+        if (i%2 == 0){
+            sum_even += i
+        }
+    return sum_even
+}
+sumOfEven(1,2,3,4,5,6)
+console.log('Sum of even number is: ',sum_even)
+
+let even_arr = 0
+let odd_arr = 0
+function evenAndOdds(num){
+    for (let i = 0; i <= num; i++){
+        if (i%2 === 0){
+            even_arr++
+            
+        }else{
+            odd_arr++
+        }
+    }
+}
+evenAndOdds(100)
+console.log(`The number of EVEN number is ${even_arr}\nThe number of ODD number is ${odd_arr}`)
+
+const readline = require('node:readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.question('Enter number of characters per ID: ', (num_char) => {
+  rl.question('Enter number of IDs to generate: ', (num_id) => {
+    userIdGenerator(parseInt(num_char), parseInt(num_id));
+    rl.close();
+  })
+})
+
+const char = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+function userIdGenerator(num_char,num_id){
+    for (let i = 0; i < num_id; i++){
+        let id = ''
+        for (let j = 0; j < num_char; j++){
+            let random = Math.floor(Math.random()*char.length)
+            id += char[random]
+        }
+        console.log(id)
+    }
+
+}
